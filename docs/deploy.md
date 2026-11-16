@@ -2,10 +2,8 @@
 
 English, Dashboard-friendly steps. Secrets are listed by **name only** — never commit values.
 
-Suggested public home (archonia.org org; exact repo name TBD by maintainers):
-`https://github.com/<ARCHONIA_ORG>/<PUBLIC_TEMPLATE_REPO>`
-
-Until that URL is final, the Deploy button in the README uses the same placeholders.
+Public home (archonia.org GitHub org):
+[`https://github.com/archoniaDev/ax402-demo-shop`](https://github.com/archoniaDev/ax402-demo-shop)
 
 ## 1. Prerequisites
 
@@ -26,8 +24,8 @@ Until that URL is final, the Deploy button in the README uses the same placehold
 ## 3. Clone + Wrangler path
 
 ```bash
-git clone https://github.com/<ARCHONIA_ORG>/<PUBLIC_TEMPLATE_REPO>.git
-cd <PUBLIC_TEMPLATE_REPO>
+git clone https://github.com/archoniaDev/ax402-demo-shop.git
+cd ax402-demo-shop
 npm install
 npx wrangler login   # or CLOUDFLARE_API_TOKEN
 ```

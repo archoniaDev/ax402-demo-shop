@@ -8,9 +8,9 @@ Public **Cloudflare Workers** template for a digital-download shop that takes **
 
 ## Deploy to Cloudflare
 
-Replace `<ARCHONIA_ORG>` / `<PUBLIC_TEMPLATE_REPO>` once the official archonia.org GitHub repo exists:
+Official public repo: [`archoniaDev/ax402-demo-shop`](https://github.com/archoniaDev/ax402-demo-shop)
 
-[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/<ARCHONIA_ORG>/<PUBLIC_TEMPLATE_REPO>)
+[![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/archoniaDev/ax402-demo-shop)
 
 Full steps: **[docs/deploy.md](docs/deploy.md)**.
 
