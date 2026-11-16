@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="meta.shop.title">Shop — Ax402 Demo Shop</title>
+    <meta name="description" content="Ax402 Demo Shop — sample FLAC/WAV downloads for USDC." />
+    <meta name="theme-color" content="#3a0610" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
+  <body>
+    <header class="page-strip" aria-label="Shop">
+      <div class="page-strip-plane" aria-hidden="true"></div>
+      <div class="wrap page-strip-inner">
+        <div class="page-strip-top">
+          <a class="brand-mark" href="/">Ax402 Demo Shop</a>
+          <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+            <span class="nav-toggle-bars" aria-hidden="true"><span></span></span>
+          </button>
+          <nav id="site-nav">
+            <a href="/shop/" aria-current="page" data-i18n="nav.shop">Shop</a>
+            <a href="/checkout/" class="nav-cart">
+              <span data-i18n="nav.cart">Cart</span>
+              <span data-cart-count class="cart-badge" hidden>0</span>
+            </a>
+            <a href="/how-it-works/" data-i18n="nav.how">How it works</a>
+            <a href="/about/" data-i18n="nav.about">About</a>
+            <a href="/contact/" data-i18n="nav.contact">Contact</a>
+            <button type="button" class="lang-btn" data-lang-toggle>EN</button>
+          </nav>
+        </div>
+        <h1 class="page-strip-title" data-i18n="shop.title">Shop</h1>
+        <p class="page-strip-lede" data-i18n="shop.lede">Album and tracks. Prices: 0.90 USDC per track, 10 USDC per album.</p>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <main>
+        <div data-catalog class="catalog"></div>
+        <p class="checkout-cta">
+          <a class="btn" href="/checkout/" data-i18n="shop.checkout">Go to checkout</a>
+        </p>
+      </main>
+
+      <footer class="foot">
+        <div class="foot-links">
+          <a href="https://archonia.org" rel="noopener" data-i18n="footer.ax402">Ax402</a>
+          <a href="https://archonia.org" rel="noopener">© Ax402 / archonia.org</a>
+        </div>
+        <a href="/how-it-works/" data-i18n="footer.how">How it works</a>
+      </footer>
+    </div>
+    <script src="/assets/site.js"></script>
+    <script src="/assets/cart.js"></script>
+    <script src="/assets/shop.js"></script>
+  </body>
+</html>

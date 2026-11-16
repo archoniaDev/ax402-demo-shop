@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="meta.checkout.title">Checkout — Ax402 Demo Shop</title>
+    <meta name="description" content="Checkout — pay with USDC on Base via Ax402." />
+    <meta name="theme-color" content="#3a0610" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
+  <body>
+    <header class="page-strip" aria-label="Checkout">
+      <div class="page-strip-plane" aria-hidden="true"></div>
+      <div class="wrap page-strip-inner">
+        <div class="page-strip-top">
+          <a class="brand-mark" href="/">Ax402 Demo Shop</a>
+          <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+            <span class="nav-toggle-bars" aria-hidden="true"><span></span></span>
+          </button>
+          <nav id="site-nav">
+            <a href="/shop/" data-i18n="nav.shop">Shop</a>
+            <a href="/checkout/" class="nav-cart" aria-current="page">
+              <span data-i18n="nav.cart">Cart</span>
+              <span data-cart-count class="cart-badge" hidden>0</span>
+            </a>
+            <a href="/how-it-works/" data-i18n="nav.how">How it works</a>
+            <a href="/about/" data-i18n="nav.about">About</a>
+            <a href="/contact/" data-i18n="nav.contact">Contact</a>
+            <button type="button" class="lang-btn" data-lang-toggle>EN</button>
+          </nav>
+        </div>
+        <h1 class="page-strip-title" data-i18n="checkout.title">Checkout</h1>
+        <p class="page-strip-lede" data-i18n="checkout.lede">Email for delivery, then pay in USDC on Base.</p>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <main>
+        <section class="panel">
+          <h2 data-i18n="checkout.cart">Your cart</h2>
+          <div data-cart-list class="cart-list"></div>
+          <p class="total"><span data-i18n="checkout.total">Total</span>: <strong data-cart-total class="mono"></strong></p>
+        </section>
+
+        <section class="panel">
+          <label for="buyer-email" data-i18n="checkout.email">Email (required for download delivery)</label>
+          <input id="buyer-email" type="email" required autocomplete="email" data-i18n-placeholder="checkout.email_ph" placeholder="you@example.com" />
+        </section>
+
+        <section class="panel" id="wallet-help" hidden>
+          <h2 data-i18n="order.wallet.help.title">You need a browser wallet to tap Pay</h2>
+          <p data-i18n="order.wallet.help.lead">This page talks to MetaMask or Coinbase Wallet in your browser.</p>
+          <h3 data-i18n="order.wallet.help.desktop.title">On a computer</h3>
+          <p data-i18n="order.wallet.help.desktop.body">Install MetaMask or Coinbase Wallet in Chrome, Brave, or Edge. Unlock, then refresh. Safari often cannot inject a wallet — use Chrome/Brave/Edge, or paste a transaction hash below.</p>
+          <h3 data-i18n="order.wallet.help.mobile.title">On a phone</h3>
+          <p data-i18n="order.wallet.help.mobile.body">Open MetaMask or Coinbase Wallet, use the in-app browser, and open this site. Safari or Chrome alone usually have no wallet.</p>
+          <p data-i18n="order.wallet.help.fallback">Already sent the USDC? Expand “Paste the transaction hash” below.</p>
+        </section>
+
+        <section class="panel pay-actions">
+          <p class="muted" data-i18n="checkout.downloads">After payment: each file link works up to 5 times and expires after 7 days.</p>
+          <button type="button" class="btn" id="pay-wallet" data-i18n="checkout.pay_wallet">Pay with USDC</button>
+          <details class="paste-hash">
+            <summary data-i18n="checkout.paste_summary">Paste the transaction hash</summary>
+            <label for="tx-hash" data-i18n="checkout.tx_hash">Transaction hash</label>
+            <input id="tx-hash" class="mono" placeholder="0x…" spellcheck="false" />
+            <button type="button" class="btn btn-ghost" id="pay-paste" data-i18n="checkout.pay_paste">Verify payment</button>
+          </details>
+          <p class="msg" data-checkout-msg></p>
+        </section>
+      </main>
+
+      <footer class="foot">
+        <div class="foot-links">
+          <a href="https://archonia.org" rel="noopener" data-i18n="footer.ax402">Ax402</a>
+          <a href="https://archonia.org" rel="noopener">© Ax402 / archonia.org</a>
+        </div>
+        <a href="/how-it-works/" data-i18n="footer.how">How it works</a>
+      </footer>
+    </div>
+    <script src="/assets/site.js"></script>
+    <script src="/assets/cart.js"></script>
+    <script src="/assets/usdc-pay.js"></script>
+    <script src="/assets/checkout.js"></script>
+  </body>
+</html>

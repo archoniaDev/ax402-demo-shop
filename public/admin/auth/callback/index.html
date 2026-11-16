@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Signing in — Ax402 Demo Shop</title>
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <main class="card narrow">
+    <h1>Signing in…</h1>
+    <p id="msg" class="msg">Please wait.</p>
+  </main>
+  <script>
+    (async () => {
+      const msg = document.getElementById("msg");
+      const token = new URLSearchParams(location.search).get("token") || "";
+      if (!/^[0-9a-f]{64}$/.test(token)) {
+        msg.textContent = "Invalid link.";
+        msg.className = "msg err";
+        return;
+      }
+      try {
+        const res = await fetch("/api/auth/callback", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          credentials: "same-origin",
+          body: JSON.stringify({ token }),
+        });
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok) throw new Error(data.error || res.status);
+        location.replace("/admin/");
+      } catch (err) {
+        msg.textContent = err.message || "Sign-in failed.";
+        msg.className = "msg err";
+      }
+    })();
+  </script>
+</body>
+</html>

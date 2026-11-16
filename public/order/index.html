@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="meta.order.title">Order — Ax402 Demo Shop</title>
+    <meta name="robots" content="noindex" />
+    <meta name="theme-color" content="#3a0610" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/assets/site.css" />
+  </head>
+  <body>
+    <header class="page-strip" aria-label="Order">
+      <div class="page-strip-plane" aria-hidden="true"></div>
+      <div class="wrap page-strip-inner">
+        <div class="page-strip-top">
+          <a class="brand-mark" href="/">Ax402 Demo Shop</a>
+          <button type="button" class="nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-nav" aria-label="Menu">
+            <span class="nav-toggle-bars" aria-hidden="true"><span></span></span>
+          </button>
+          <nav id="site-nav">
+            <a href="/shop/" data-i18n="nav.shop">Shop</a>
+            <a href="/checkout/" class="nav-cart">
+              <span data-i18n="nav.cart">Cart</span>
+              <span data-cart-count class="cart-badge" hidden>0</span>
+            </a>
+            <a href="/how-it-works/" data-i18n="nav.how">How it works</a>
+            <a href="/contact/" data-i18n="nav.contact">Contact</a>
+            <button type="button" class="lang-btn" data-lang-toggle>EN</button>
+          </nav>
+        </div>
+        <h1 class="page-strip-title" data-i18n="order.title">Order</h1>
+        <p id="order-status" class="page-strip-lede"></p>
+      </div>
+    </header>
+
+    <div class="wrap">
+      <main>
+        <section class="panel">
+          <div id="order-items"></div>
+          <div id="order-downloads" class="downloads"></div>
+          <p id="order-note" class="muted"></p>
+        </section>
+      </main>
+      <footer class="foot">
+        <div class="foot-links">
+          <a href="https://archonia.org" rel="noopener">Ax402</a>
+          <a href="https://archonia.org" rel="noopener">© Ax402 / archonia.org</a>
+        </div>
+      </footer>
+    </div>
+    <script src="/assets/site.js"></script>
+    <script src="/assets/cart.js"></script>
+    <script>
+      (async () => {
+        const params = new URLSearchParams(location.search);
+        const id = params.get("id");
+        const statusEl = document.getElementById("order-status");
+        const itemsEl = document.getElementById("order-items");
+        const dlEl = document.getElementById("order-downloads");
+        const noteEl = document.getElementById("order-note");
+        const t = (k, f) => window.AxShop?.t?.(k) ?? f ?? k;
+        if (!id) {
+          statusEl.textContent = t("order.missing", "Missing order id.");
+          return;
+        }
+        try {
+          const res = await fetch(`/api/orders/${encodeURIComponent(id)}`);
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || res.status);
+          statusEl.textContent = `${t("order.status", "Status")}: ${data.status} · ${data.amount} USDC`;
+          itemsEl.replaceChildren();
+          for (const item of data.items || []) {
+            const p = document.createElement("p");
+            p.textContent = `${item.title} — ${item.price_usdc} USDC`;
+            itemsEl.append(p);
+          }
+          let downloads = data.downloads;
+          try {
+            const cached = sessionStorage.getItem(`axshop-dl-${id}`);
+            if (cached) downloads = JSON.parse(cached);
+          } catch {}
+          dlEl.replaceChildren();
+          if (downloads?.length) {
+            const h = document.createElement("h2");
+            h.textContent = t("order.downloads", "Downloads");
+            dlEl.append(h);
+            for (const d of downloads) {
+              const a = document.createElement("a");
+              a.className = "btn";
+              a.href = d.url;
+              a.textContent = d.title;
+              dlEl.append(a);
+            }
+            noteEl.textContent = t(
+              "order.dl_note",
+              "Links are time-limited. An email copy was sent if delivery mail is configured.",
+            );
+          } else if (data.status === "paid" || data.status === "fulfilled") {
+            noteEl.textContent = t(
+              "order.no_audio",
+              "Payment received. Audio files are not uploaded yet — check your email once tracks are in R2, or contact the band.",
+            );
+          } else if (data.status === "pending_payment") {
+            noteEl.innerHTML = "";
+            const a = document.createElement("a");
+            a.href = "/checkout/";
+            a.textContent = t("order.resume", "Return to checkout to pay");
+            noteEl.append(a);
+          }
+        } catch (err) {
+          statusEl.textContent = err.message || String(err);
+        }
+      })();
+    </script>
+  </body>
+</html>

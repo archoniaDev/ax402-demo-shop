@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.w3.org/2000/sitemap/0.9">
+  <!-- Replace example.com with your PUBLIC_BASE_URL host after deploy. -->
+  <url><loc>https://example.com/</loc></url>
+  <url><loc>https://example.com/shop/</loc></url>
+  <url><loc>https://example.com/checkout/</loc></url>
+  <url><loc>https://example.com/how-it-works/</loc></url>
+  <url><loc>https://example.com/about/</loc></url>
+  <url><loc>https://example.com/contact/</loc></url>
+</urlset>

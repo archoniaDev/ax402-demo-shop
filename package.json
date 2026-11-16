@@ -1,0 +1,21 @@
+{
+  "name": "ax402-demo-shop",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Ax402 Demo Shop — USDC digital downloads template on Cloudflare Workers (D1 + R2)",
+  "license": "MIT",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:dry": "wrangler deploy --dry-run",
+    "migrate": "wrangler d1 migrations apply shop-db --remote",
+    "migrate:local": "wrangler d1 migrations apply shop-db --local",
+    "types": "wrangler types",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "wrangler": "^4.94.0"
+  }
+}

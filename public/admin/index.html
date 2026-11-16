@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="robots" content="noindex" />
+  <title>Ax402 Demo Shop admin</title>
+  <link rel="stylesheet" href="/admin/admin.css" />
+</head>
+<body>
+  <main id="login" class="card narrow" hidden>
+    <h1>Ax402 Demo Shop admin</h1>
+    <p class="muted">Enter the owner email to receive a sign-in link.</p>
+    <form id="login-form">
+      <label for="email">Email</label>
+      <input id="email" type="email" required autocomplete="email" />
+      <div class="row" style="margin-top:.8rem"><button class="primary" type="submit">Send sign-in link</button></div>
+    </form>
+    <p id="login-msg" class="msg"></p>
+    <p id="dev-link" class="msg" hidden></p>
+  </main>
+
+  <main id="app" hidden>
+    <header class="bar">
+      <h1>Catalog</h1>
+      <div class="row"><span id="who" class="muted"></span><button id="logout" type="button">Sign out</button></div>
+    </header>
+
+    <nav class="tabs">
+      <button type="button" data-tab="tracks" class="active">Tracks</button>
+      <button type="button" data-tab="albums">Albums</button>
+      <button type="button" data-tab="orders">Orders</button>
+      <button type="button" data-tab="about">About</button>
+    </nav>
+
+    <section id="tab-tracks" class="card">
+      <h2 id="track-form-title">New track</h2>
+      <form id="track-form">
+        <input type="hidden" id="t-id" />
+        <div class="grid">
+          <div><label for="t-title-sv">Title (SV)</label><input id="t-title-sv" required maxlength="200" /></div>
+          <div><label for="t-title-en">Title (EN)</label><input id="t-title-en" required maxlength="200" /></div>
+          <div><label for="t-price">Price (USDC)</label><input id="t-price" value="0.90" required /></div>
+          <div><label for="t-format">Format</label>
+            <select id="t-format"><option value="flac">FLAC</option><option value="wav">WAV</option></select>
+          </div>
+          <div><label for="t-album">Album id (optional)</label><input id="t-album" placeholder="alb-…" /></div>
+          <div><label for="t-spotify">Spotify URL</label><input id="t-spotify" type="url" placeholder="https://open.spotify.com/track/…" /><p class="hint">Saving fetches cover art via Spotify API (needs SPOTIFY_CLIENT_ID / SECRET).</p></div>
+          <div><label for="t-number">Track #</label><input id="t-number" type="number" value="0" /></div>
+          <div><label for="t-sort">Sort</label><input id="t-sort" type="number" value="0" /></div>
+          <div><label for="t-audio">Audio (.flac / .wav)</label><input id="t-audio" type="file" accept=".flac,.wav,audio/flac,audio/wav" /></div>
+        </div>
+        <label class="row"><input id="t-active" type="checkbox" checked /> Active</label>
+        <div class="row" style="margin-top:.8rem">
+          <button class="primary" type="submit">Save track</button>
+          <button type="button" id="t-cancel" hidden>Cancel</button>
+        </div>
+        <p id="track-msg" class="msg"></p>
+      </form>
+      <div id="track-list"></div>
+    </section>
+
+    <section id="tab-albums" class="card" hidden>
+      <h2 id="album-form-title">New album</h2>
+      <form id="album-form">
+        <input type="hidden" id="a-id" />
+        <div class="grid">
+          <div><label for="a-title-sv">Title (SV)</label><input id="a-title-sv" required /></div>
+          <div><label for="a-title-en">Title (EN)</label><input id="a-title-en" required /></div>
+          <div><label for="a-desc-sv">Description (SV)</label><textarea id="a-desc-sv" rows="2"></textarea></div>
+          <div><label for="a-desc-en">Description (EN)</label><textarea id="a-desc-en" rows="2"></textarea></div>
+          <div><label for="a-price">Price (USDC)</label><input id="a-price" value="10.00" required /></div>
+          <div><label for="a-spotify">Spotify URL</label><input id="a-spotify" type="url" placeholder="https://open.spotify.com/album/…" /><p class="hint">Saving fetches cover art; mirrors to R2 if no manual cover yet.</p></div>
+          <div><label for="a-cover">Cover image</label><input id="a-cover" type="file" accept="image/*" /><p class="hint">Optional manual upload — overrides Spotify-mirrored R2 cover in the shop.</p></div>
+        </div>
+        <label class="row"><input id="a-active" type="checkbox" checked /> Active</label>
+        <div class="row" style="margin-top:.8rem">
+          <button class="primary" type="submit">Save album</button>
+          <button type="button" id="a-cancel" hidden>Cancel</button>
+        </div>
+        <p id="album-msg" class="msg"></p>
+      </form>
+      <div id="album-list"></div>
+    </section>
+
+    <section id="tab-orders" class="card" hidden>
+      <h2>Recent orders</h2>
+      <div id="order-list"></div>
+    </section>
+
+    <section id="tab-about" class="card" hidden>
+      <h2>About page</h2>
+      <p class="muted">Edit the public /about/ copy. Empty fields fall back to the static i18n defaults on the site.</p>
+      <form id="about-form">
+        <div class="grid">
+          <div><label for="about-title-sv">Title (SV)</label><input id="about-title-sv" maxlength="120" /></div>
+          <div><label for="about-title-en">Title (EN)</label><input id="about-title-en" maxlength="120" /></div>
+          <div><label for="about-lede-sv">Lede (SV)</label><textarea id="about-lede-sv" rows="2" maxlength="500"></textarea></div>
+          <div><label for="about-lede-en">Lede (EN)</label><textarea id="about-lede-en" rows="2" maxlength="500"></textarea></div>
+          <div><label for="about-body-sv">Body (SV)</label><textarea id="about-body-sv" rows="6" maxlength="8000"></textarea></div>
+          <div><label for="about-body-en">Body (EN)</label><textarea id="about-body-en" rows="6" maxlength="8000"></textarea></div>
+        </div>
+        <div class="row" style="margin-top:.8rem">
+          <button class="primary" type="submit">Save About</button>
+          <a class="muted" href="/about/" target="_blank" rel="noopener">Open /about/</a>
+        </div>
+        <p id="about-msg" class="msg"></p>
+      </form>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <a href="https://archonia.org" rel="noopener">Ax402</a>
+    <a href="https://archonia.org" rel="noopener">© Ax402 / archonia.org</a>
+  </footer>
+
+  <script src="/admin/admin.js"></script>
+</body>
+</html>

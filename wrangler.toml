@@ -1,0 +1,39 @@
+name = "ax402-demo-shop"
+main = "src/index.ts"
+compatibility_date = "2026-11-15"
+workers_dev = true
+# Explicitly disable Version/Preview URLs so deploy does not default them from workers_dev.
+preview_urls = false
+
+# Static public shell (Workers Static Assets — not Pages).
+[assets]
+directory = "./public"
+binding = "ASSETS"
+# API routes hit the Worker first; HTML/CSS/JS served from assets.
+run_worker_first = ["/api/*", "/health"]
+# Download + cover routes are under /api/* (Worker first).
+
+# Create D1 with: npx wrangler d1 create shop-db
+# Then paste the id below (Deploy to Cloudflare can provision this for you).
+[[d1_databases]]
+binding = "DB"
+database_name = "shop-db"
+database_id = "00000000-0000-0000-0000-000000000000"
+migrations_dir = "migrations"
+
+# Create R2 with: npx wrangler r2 bucket create shop-audio
+# Private audio + cover art. No public object URLs.
+[[r2_buckets]]
+binding = "AUDIO"
+bucket_name = "shop-audio"
+
+[vars]
+AX402_API_URL = "https://api.archonia.org"
+DEFAULT_LOCALE = "en"
+# Public Turnstile site key (widget). Replace with your widget site key after deploy.
+# Cloudflare dummy always-pass key for local/UI smoke only (not for production):
+# https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+TURNSTILE_SITE_KEY = "1x00000000000000000000AA"
+# Allowed hostnames for Siteverify (comma-separated). Override for your domain.
+TURNSTILE_HOSTNAMES = "localhost,127.0.0.1"
+# Attach your custom domain in Cloudflare (DNS + Worker custom hostname) after deploy.

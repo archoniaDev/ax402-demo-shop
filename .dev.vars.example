@@ -1,0 +1,25 @@
+# Local only — copy to .dev.vars (gitignored). Never put real production secrets here in git.
+AX402_MERCHANT_KEY=
+# Dummy payout address for local mock pay only — replace with YOUR Base USDC wallet before real sales.
+PAYOUT_ADDRESS=0x0000000000000000000000000000000000000001
+SESSION_SECRET=dev-only-change-me
+RESEND_API_KEY=
+RESEND_FROM_EMAIL=Ax402 Demo Shop <noreply@example.com>
+OWNER_BOOTSTRAP_EMAIL=you@example.com
+# Optional contact inbox (defaults to OWNER_BOOTSTRAP_EMAIL):
+# CONTACT_TO_EMAIL=you@example.com
+PUBLIC_BASE_URL=http://localhost:8787
+MAGIC_LINK_DEV_RETURN=true
+# Local pay smoke without Ax402 — NEVER enable mock verify on a public store:
+AX402_VERIFY_MODE=mock
+AX402_ALLOW_MOCK=true
+# Spotify cover fetch (optional — free Developer Dashboard app, Client Credentials):
+# SPOTIFY_CLIENT_ID=
+# SPOTIFY_CLIENT_SECRET=
+# Turnstile — template ships Cloudflare dummy always-pass site key in wrangler.toml [vars].
+# For local Siteverify hostname check:
+TURNSTILE_HOSTNAMES=localhost,127.0.0.1
+# Dummy always-pass secret (testing only):
+# https://developers.cloudflare.com/turnstile/troubleshooting/testing/
+TURNSTILE_SECRET_KEY=1x0000000000000000000000000000000AA
+# For production: create your own Turnstile widget and put the real secret via wrangler secret put.
