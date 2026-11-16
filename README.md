@@ -2,9 +2,15 @@
 
 Public **Cloudflare Workers** template for a digital-download shop that takes **USDC on Base**, verified by [Ax402](https://archonia.org). Stack: Worker + Static Assets + D1 + private R2 + Resend (+ optional Turnstile contact).
 
+![Ax402 Demo Shop on mobile](docs/screenshots/mobile.png)
+
 > You own the catalog and fulfillment. Ax402 verifies payment — it does **not** sell the sample demo SKUs.
 
 **Demo brand:** Ax402 Demo Shop (neutral). Replace branding via [`docs/redesign.md`](docs/redesign.md).
+
+## Consultation
+
+Want help turning this template into your own Ax402 / Cloudflare Workers shop? We offer consultation and build support — reach out via the contact form on [archonia.org](https://archonia.org) (not via the demo shop UI).
 
 ## Deploy to Cloudflare
 

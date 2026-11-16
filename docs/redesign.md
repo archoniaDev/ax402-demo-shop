@@ -33,3 +33,7 @@ Do **not** hardcode a payout address in JS. Checkout uses Ax402’s `recipient_a
 
 - **Redesign** = `public/` + admin catalog + About copy  
 - **Go-live** = secrets + Ax402 merchant + Resend + domain + R2 uploads + real Turnstile keys
+
+## Consultation (GitHub only)
+
+Do **not** add a Consultation section to shop home / nav / i18n. Any consultation or build-help offer belongs in the repo **README** (GitHub), not in the deployed template UI.
