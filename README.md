@@ -10,7 +10,7 @@ Public **Cloudflare Workers** template for a digital-download shop that takes **
 
 ## Consultation
 
-Want help turning this template into your own Ax402 / Cloudflare Workers shop? We offer consultation and build support — reach out via the contact form on [archonia.org](https://archonia.org) (not via the demo shop UI).
+Want help turning this template into your own Ax402 / Cloudflare Workers shop? We offer consultation and build support — reach out via the contact form on [archonia.org](https://archonia.org).
 
 ## Deploy to Cloudflare
 
