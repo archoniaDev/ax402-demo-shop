@@ -8,6 +8,10 @@ Public **Cloudflare Workers** template for a digital-download shop that takes **
 
 **Demo brand:** Ax402 Demo Shop (neutral). Replace branding via [`docs/redesign.md`](docs/redesign.md).
 
+## Consultation
+
+Want help turning this template into your own Ax402 / Cloudflare Workers shop? We offer consultation and build support — reach out via the contact form on [archonia.org](https://archonia.org) (not via the demo shop UI).
+
 ## Deploy to Cloudflare
 
 Official public repo: [`archoniaDev/ax402-demo-shop`](https://github.com/archoniaDev/ax402-demo-shop)
