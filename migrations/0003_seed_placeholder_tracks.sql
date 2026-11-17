@@ -9,8 +9,8 @@ INSERT OR IGNORE INTO tracks (
   ('trk-demo-03', 'alb-demo-01', 'track-03', 'Spår 03 (kommer snart)', 'Track 03 (coming soon)', '0.90', 'flac', 3, 30, 1);
 
 UPDATE albums SET
-  title_sv = 'Ax402 Demo — Album 01',
-  title_en = 'Ax402 Demo — Album 01',
+  title_sv = 'Archonia Verify Demo — Album 01',
+  title_en = 'Archonia Verify Demo — Album 01',
   description_sv = 'Exempelkatalog. Spår visas i shopen; FLAC/WAV laddas upp via admin när filerna finns.',
   description_en = 'Sample catalog. Tracks appear in the shop; FLAC/WAV are uploaded via admin when files are ready.',
   updated_at = strftime('%s', 'now')

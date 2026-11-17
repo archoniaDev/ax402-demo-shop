@@ -346,8 +346,8 @@ async function requestMagicLink(request: Request, env: Env): Promise<Response> {
 
   const sent = await sendResendEmail(env, {
     to: email,
-    subject: "Ax402 Demo Shop admin sign-in link",
-    text: `Sign in to Ax402 Demo Shop admin:\n\n${link}\n\nThis link expires in ${MAGIC_LINK_TTL_S / 60} minutes and can be used once. If you did not request it, ignore this email.`,
+    subject: "Archonia Verify Demo Shop admin sign-in link",
+    text: `Sign in to Archonia Verify Demo Shop admin:\n\n${link}\n\nThis link expires in ${MAGIC_LINK_TTL_S / 60} minutes and can be used once. If you did not request it, ignore this email.`,
   });
   if (!sent) return json(502, { error: "email_send_failed" });
   return json(200, generic);

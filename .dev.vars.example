@@ -4,13 +4,13 @@ AX402_MERCHANT_KEY=
 PAYOUT_ADDRESS=0x0000000000000000000000000000000000000001
 SESSION_SECRET=dev-only-change-me
 RESEND_API_KEY=
-RESEND_FROM_EMAIL=Ax402 Demo Shop <noreply@example.com>
+RESEND_FROM_EMAIL=Archonia Verify Demo Shop <noreply@example.com>
 OWNER_BOOTSTRAP_EMAIL=you@example.com
 # Optional contact inbox (defaults to OWNER_BOOTSTRAP_EMAIL):
 # CONTACT_TO_EMAIL=you@example.com
 PUBLIC_BASE_URL=http://localhost:8787
 MAGIC_LINK_DEV_RETURN=true
-# Local pay smoke without Ax402 — NEVER enable mock verify on a public store:
+# Local pay smoke without Archonia Verify — NEVER enable mock verify on a public store:
 AX402_VERIFY_MODE=mock
 AX402_ALLOW_MOCK=true
 # Spotify cover fetch (optional — free Developer Dashboard app, Client Credentials):

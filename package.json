@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Ax402 Demo Shop — USDC digital downloads template on Cloudflare Workers (D1 + R2)",
+  "description": "Archonia Verify Demo Shop — USDC digital downloads template on Cloudflare Workers (D1 + R2)",
   "license": "MIT",
   "scripts": {
     "dev": "wrangler dev",

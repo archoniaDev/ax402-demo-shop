@@ -1,5 +1,5 @@
 /**
- * Ax402 Demo Shop cart — localStorage lines { kind: 'track'|'album', id }.
+ * Archonia Verify Demo Shop cart — localStorage lines { kind: 'track'|'album', id }.
  */
 (() => {
   const KEY = "axshop-cart";

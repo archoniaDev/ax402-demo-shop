@@ -74,8 +74,8 @@ export async function submitContact(request: Request, env: Env): Promise<Respons
   const email = emailRaw.toLowerCase();
   const subject =
     locale === "en"
-      ? `Ax402 Demo Shop contact — ${name}`
-      : `Ax402 Demo Shop kontakt — ${name}`;
+      ? `Archonia Verify Demo Shop contact — ${name}`
+      : `Archonia Verify Demo Shop kontakt — ${name}`;
   const base = String(env.PUBLIC_BASE_URL ?? "").replace(/\/+$/, "") || "shop";
   const text = [
     `Name: ${name}`,

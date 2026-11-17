@@ -18,9 +18,9 @@ export const ABOUT_I18N_DEFAULTS = {
   lede_sv: "Demo-butik för digitala nedladdningar med USDC på Base.",
   lede_en: "Demo shop for digital downloads with USDC on Base.",
   body_sv:
-    "Ax402 Demo Shop är en offentlig mall. Byt ut den här texten, katalogen och varumärket mot ditt eget.",
+    "Archonia Verify Demo Shop är en offentlig mall. Byt ut den här texten, katalogen och varumärket mot ditt eget.",
   body_en:
-    "Ax402 Demo Shop is a public template. Replace this copy, the catalog, and the branding with your own.",
+    "Archonia Verify Demo Shop is a public template. Replace this copy, the catalog, and the branding with your own.",
 } as const;
 
 const SELECT =

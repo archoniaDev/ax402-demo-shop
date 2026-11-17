@@ -34,8 +34,8 @@ export async function sendDownloadEmail(
 ): Promise<boolean> {
   const sv = opts.locale !== "en";
   const subject = sv
-    ? `Ax402 Demo Shop — dina nedladdningar (order ${opts.orderId.slice(0, 8)})`
-    : `Ax402 Demo Shop — your downloads (order ${opts.orderId.slice(0, 8)})`;
+    ? `Archonia Verify Demo Shop — dina nedladdningar (order ${opts.orderId.slice(0, 8)})`
+    : `Archonia Verify Demo Shop — your downloads (order ${opts.orderId.slice(0, 8)})`;
   const intro = sv
     ? "Tack för köpet. Här är tidsbegränsade nedladdningslänkar:"
     : "Thanks for your purchase. Here are time-limited download links:";
@@ -47,7 +47,7 @@ export async function sendDownloadEmail(
     ? "(Inga ljudfiler är uppladdade ännu — admin lägger till FLAC/WAV snart.)"
     : "(No audio files uploaded yet — admin will add FLAC/WAV soon.)";
   const base = String(env.PUBLIC_BASE_URL ?? "").replace(/\/+$/, "");
-  const signoff = base ? `— Ax402 Demo Shop\n${base}` : "— Ax402 Demo Shop";
+  const signoff = base ? `— Archonia Verify Demo Shop\n${base}` : "— Archonia Verify Demo Shop";
   const text = `${intro}\n\n${lines || empty}\n\n${note}\n\n${signoff}`;
   return sendResendEmail(env, { to: opts.to, subject, text });
 }

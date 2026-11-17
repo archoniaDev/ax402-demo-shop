@@ -1,5 +1,5 @@
 /**
- * Ax402 Demo Shop contact form — Turnstile (explicit render) + POST /api/contact.
+ * Archonia Verify Demo Shop contact form — Turnstile (explicit render) + POST /api/contact.
  */
 (() => {
   const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

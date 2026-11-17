@@ -16,7 +16,7 @@
     }
     // Keep document title in sync with About title when present.
     const title = partial["about.title"];
-    if (title) partial["meta.about.title"] = `${title} — Ax402 Demo Shop`;
+    if (title) partial["meta.about.title"] = `${title} — Archonia Verify Demo Shop`;
     return partial;
   }
 
