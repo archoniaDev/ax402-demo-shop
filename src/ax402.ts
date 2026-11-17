@@ -1,5 +1,5 @@
 /**
- * Ax402 client for Ax402 Demo Shop — merchant-quote + store/orders verify.
+ * Archonia Verify client for Archonia Verify Demo Shop — merchant-quote + store/orders verify.
  *
  * AX402_VERIFY_MODE:
  *   store_orders (default) — POST {AX402_API_URL}/store/orders with quote_id + payment_data.hash
@@ -56,7 +56,7 @@ async function fetchJson(
 export type QuoteSku = { sku: string; amount_usdc: string };
 
 /**
- * Resolve an Ax402 quote_id for a cart line / order total.
+ * Resolve an Archonia Verify quote_id for a cart line / order total.
  * Uses a single sku representing the order (track slug or album slug or cart-composite).
  */
 export async function obtainQuote(
@@ -87,13 +87,13 @@ export async function obtainQuote(
       return {
         ok: false,
         error: "ax402_quote_unavailable",
-        detail: `Ax402 merchant quote failed (${status}): ${String(body?.detail ?? body?.error ?? "unknown")}`,
+        detail: `Archonia Verify merchant quote failed (${status}): ${String(body?.detail ?? body?.error ?? "unknown")}`,
       };
     } catch (err) {
       return {
         ok: false,
         error: "ax402_quote_unavailable",
-        detail: `Ax402 merchant quote unreachable: ${err instanceof Error ? err.message : "fetch failed"}`,
+        detail: `Archonia Verify merchant quote unreachable: ${err instanceof Error ? err.message : "fetch failed"}`,
       };
     }
   }
@@ -111,13 +111,13 @@ export async function obtainQuote(
       return {
         ok: false,
         error: "ax402_quote_unavailable",
-        detail: `local Ax402 quote create failed (${status}): ${String(body?.error ?? "unknown")}`,
+        detail: `local Archonia Verify quote create failed (${status}): ${String(body?.error ?? "unknown")}`,
       };
     } catch (err) {
       return {
         ok: false,
         error: "ax402_quote_unavailable",
-        detail: `local Ax402 unreachable: ${err instanceof Error ? err.message : "fetch failed"}`,
+        detail: `local Archonia Verify unreachable: ${err instanceof Error ? err.message : "fetch failed"}`,
       };
     }
   }
@@ -126,7 +126,7 @@ export async function obtainQuote(
     ok: false,
     error: "ax402_quote_unavailable",
     detail:
-      `No Ax402 quote_id for sku "${item.sku}". Set AX402_MERCHANT_KEY (yogm_…) so the shop can ` +
+      `No Archonia Verify quote_id for sku "${item.sku}". Set AX402_MERCHANT_KEY (yogm_…) so the shop can ` +
       "POST /v1/merchant/quotes. Public POST /store/quotes stays blocked in production.",
   };
 }
@@ -152,7 +152,7 @@ export async function verifyPayment(
       ok: false,
       status: 503,
       error: "ax402_quote_unavailable",
-      detail: "order has no Ax402 quote_id; cannot verify via /store/orders",
+      detail: "order has no Archonia Verify quote_id; cannot verify via /store/orders",
     };
   }
 
@@ -183,12 +183,12 @@ export async function verifyPayment(
     return { ok: true, mode: "store_orders", ax402_order_id: orderId };
   }
 
-  const detail = String(res.body?.detail ?? res.body?.error ?? `Ax402 responded ${res.status}`);
+  const detail = String(res.body?.detail ?? res.body?.error ?? `Archonia Verify responded ${res.status}`);
   const status = res.status >= 500 ? 502 : res.status === 409 ? 409 : 400;
   return {
     ok: false,
     status,
     error: res.status >= 500 ? "ax402_error" : "payment_not_verified",
-    detail: `Ax402 ${res.status}: ${detail}`,
+    detail: `Archonia Verify ${res.status}: ${detail}`,
   };
 }

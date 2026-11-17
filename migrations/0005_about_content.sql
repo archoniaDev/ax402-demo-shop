@@ -20,6 +20,6 @@ INSERT OR IGNORE INTO about_content (
   'About',
   'Demo-butik för digitala nedladdningar med USDC på Base.',
   'Demo shop for digital downloads with USDC on Base.',
-  'Ax402 Demo Shop är en offentlig mall. Byt ut den här texten, katalogen och varumärket mot ditt eget.',
-  'Ax402 Demo Shop is a public template. Replace this copy, the catalog, and the branding with your own.'
+  'Archonia Verify Demo Shop är en offentlig mall. Byt ut den här texten, katalogen och varumärket mot ditt eget.',
+  'Archonia Verify Demo Shop is a public template. Replace this copy, the catalog, and the branding with your own.'
 );

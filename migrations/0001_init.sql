@@ -1,4 +1,4 @@
--- Ax402 Demo Shop D1 schema (catalog, orders, downloads, admin).
+-- Archonia Verify Demo Shop D1 schema (catalog, orders, downloads, admin).
 -- Catalog: albums + tracks. Commerce: orders + download_tokens. Admin: owners + sessions.
 
 CREATE TABLE IF NOT EXISTS albums (

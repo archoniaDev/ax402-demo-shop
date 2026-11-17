@@ -1,5 +1,5 @@
 /**
- * Ax402 Demo Shop public shell — SV/EN toggle + mobile nav.
+ * Archonia Verify Demo Shop public shell — SV/EN toggle + mobile nav.
  * Language preference is persisted immediately (localStorage + cookie)
  * so a follow-up navigation cannot lose the choice mid-fetch.
  */

@@ -1,5 +1,5 @@
 /**
- * Ax402 Demo Shop Worker — public site + API (catalog, Ax402 pay, R2 downloads, admin).
+ * Archonia Verify Demo Shop Worker — public site + API (catalog, Archonia Verify pay, R2 downloads, admin).
  */
 
 import type { Env } from "./env";

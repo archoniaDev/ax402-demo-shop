@@ -1,16 +1,16 @@
-# Ax402 Demo Shop
+# Archonia Verify Demo Shop
 
-Public **Cloudflare Workers** template for a digital-download shop that takes **USDC on Base**, verified by [Ax402](https://archonia.org). Stack: Worker + Static Assets + D1 + private R2 + Resend (+ optional Turnstile contact).
+Public **Cloudflare Workers** template for a digital-download shop that takes **USDC on Base**, verified by [Archonia Verify](https://archonia.org) — *On-chain USDC payment verification for x402*. Stack: Worker + Static Assets + D1 + private R2 + Resend (+ optional Turnstile contact).
 
-![Ax402 Demo Shop on mobile](docs/screenshots/mobile.png)
+![Archonia Verify Demo Shop on mobile](docs/screenshots/mobile.png)
 
-> You own the catalog and fulfillment. Ax402 verifies payment — it does **not** sell the sample demo SKUs.
+> You own the catalog and fulfillment. Archonia Verify verifies payment — it does **not** sell the sample demo SKUs.
 
-**Demo brand:** Ax402 Demo Shop (neutral). Replace branding via [`docs/redesign.md`](docs/redesign.md).
+**Demo brand:** Archonia Verify Demo Shop (neutral). Replace branding via [`docs/redesign.md`](docs/redesign.md).
 
 ## Consultation
 
-Want help turning this template into your own Ax402 / Cloudflare Workers shop? We offer consultation and build support — reach out via the contact form on [archonia.org](https://archonia.org).
+Want help turning this template into your own Archonia Verify / Cloudflare Workers shop? We offer consultation and build support — reach out via the contact form on [archonia.org](https://archonia.org).
 
 ## Deploy to Cloudflare
 
@@ -23,7 +23,7 @@ Full steps: **[docs/deploy.md](docs/deploy.md)**.
 ## What you get
 
 - Catalog / cart / checkout for digital goods (sample album + tracks)
-- Ax402 merchant quotes + USDC pay (wallet or paste tx hash)
+- Archonia Verify merchant quotes + USDC pay (wallet or paste tx hash)
 - Private R2 fulfillment + email delivery
 - Admin magic-link + catalog CRUD + About editor
 - Optional contact form (Turnstile + Resend)
@@ -34,7 +34,7 @@ Full steps: **[docs/deploy.md](docs/deploy.md)**.
 - Cloudflare + GitHub accounts
 - Base wallet for your USDC payout
 - Resend account (verified sending domain)
-- Ax402 merchant key (`yogm_…`) from [archonia.org](https://archonia.org)
+- Archonia Verify merchant key (`yogm_…`) from [archonia.org](https://archonia.org)
 
 ```bash
 npm install
@@ -79,7 +79,7 @@ Set with `npx wrangler secret put NAME` — **never commit values**.
 | Secret | Purpose |
 |--------|---------|
 | `AX402_MERCHANT_KEY` | Merchant key `yogm_…` (server-side only) |
-| `PAYOUT_ADDRESS` | Your USDC wallet on Base (must match Ax402 merchant) |
+| `PAYOUT_ADDRESS` | Your USDC wallet on Base (must match Archonia Verify merchant) |
 | `SESSION_SECRET` | Salt for magic-link / session / download token hashes |
 | `RESEND_API_KEY` | Resend API key |
 | `RESEND_FROM_EMAIL` | e.g. `Shop <noreply@example.com>` |
@@ -101,7 +101,7 @@ Redesign (HTML/CSS/copy): [docs/redesign.md](docs/redesign.md).
 
 1. Apply D1 migrations (`npm run migrate`)
 2. Put secrets + real Turnstile site key / hostnames
-3. Register Ax402 merchant with matching payout
+3. Register Archonia Verify merchant with matching payout
 4. Verify Resend domain; set `PUBLIC_BASE_URL`
 5. `/admin/` → replace sample catalog; upload files to R2
 6. Smoke `/health` + a test purchase from a **buyer** wallet (not the payout wallet)

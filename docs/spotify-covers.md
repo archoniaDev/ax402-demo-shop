@@ -19,7 +19,7 @@ Manual cover upload still wins for albums (R2 key takes precedence over the Spot
 3. Click **Create app**.
 4. Fill in:
    - **App name:** e.g. `My shop covers`
-   - **App description:** e.g. `Fetch cover art for my Ax402 shop`
+   - **App description:** e.g. `Fetch cover art for my Archonia Verify shop`
    - **Redirect URI:** `http://127.0.0.1:8787/callback` (required by the form; Client Credentials does not use it)
    - **APIs used:** Web API
 5. Save. Open the app → **Settings**.

@@ -21,7 +21,7 @@ After rebrand, the browser helpers are named:
 - `window.AxShopPay` — USDC wallet helpers
 - `window.AxShopShop` — catalog UI
 
-Do **not** hardcode a payout address in JS. Checkout uses Ax402’s `recipient_address` from the payment payload.
+Do **not** hardcode a payout address in JS. Checkout uses Archonia Verify’s `recipient_address` from the payment payload.
 
 ## Touch carefully
 
@@ -32,7 +32,7 @@ Do **not** hardcode a payout address in JS. Checkout uses Ax402’s `recipient_a
 ## Rule of thumb
 
 - **Redesign** = `public/` + admin catalog + About copy  
-- **Go-live** = secrets + Ax402 merchant + Resend + domain + R2 uploads + real Turnstile keys
+- **Go-live** = secrets + Archonia Verify merchant + Resend + domain + R2 uploads + real Turnstile keys
 
 ## Consultation
 

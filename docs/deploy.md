@@ -1,4 +1,4 @@
-# Deploy Ax402 Demo Shop
+# Deploy Archonia Verify Demo Shop
 
 English, Dashboard-friendly steps. Secrets are listed by **name only** — never commit values.
 
@@ -11,7 +11,7 @@ Public home (archonia.org GitHub org):
 - GitHub account
 - A Base wallet address for your USDC payout
 - [Resend](https://resend.com) account (download + magic-link + contact email)
-- Ax402 merchant key from [archonia.org](https://archonia.org) (`yogm_…` format)
+- Archonia Verify merchant key from [archonia.org](https://archonia.org) (`yogm_…` format)
 
 ## 2. Deploy to Cloudflare (button)
 
@@ -51,7 +51,7 @@ npm run deploy
 | Secret | Purpose |
 |--------|---------|
 | `AX402_MERCHANT_KEY` | Merchant API key (`yogm_…`) for quotes |
-| `PAYOUT_ADDRESS` | Your USDC recipient on Base (`0x…`) — must match Ax402 merchant payout |
+| `PAYOUT_ADDRESS` | Your USDC recipient on Base (`0x…`) — must match Archonia Verify merchant payout |
 | `SESSION_SECRET` | Long random salt for sessions / magic links / download tokens |
 | `RESEND_API_KEY` | Resend API key |
 | `RESEND_FROM_EMAIL` | Verified from-address, e.g. `Shop <noreply@example.com>` |
@@ -66,7 +66,7 @@ Non-secret vars in `wrangler.toml`: `AX402_API_URL`, `DEFAULT_LOCALE`, `TURNSTIL
 
 **Never** set `AX402_ALLOW_MOCK` / mock verify on a public store.
 
-## 5. Ax402 merchant
+## 5. Archonia Verify merchant
 
 1. Register a merchant with **your** `payout_address` against `https://api.archonia.org` (`POST /v1/merchant/register`).
 2. Complete any register fee if required.
@@ -74,7 +74,7 @@ Non-secret vars in `wrangler.toml`: `AX402_API_URL`, `DEFAULT_LOCALE`, `TURNSTIL
 4. Ensure `PAYOUT_ADDRESS` matches that merchant payout.
 5. Redeploy after `wrangler secret put` (it publishes a new Worker version).
 
-Ax402 verifies payment — it does **not** sell the sample catalog SKUs. You own catalog and fulfillment.
+Archonia Verify verifies payment — it does **not** sell the sample catalog SKUs. You own catalog and fulfillment.
 
 ## 6. Custom domain (optional)
 
